@@ -1,68 +1,81 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --bg-color-white: #f8e9ee;
+  --bg-color-black: #2c0c1a;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --primary-color-white: #5b2039;
+  --secundary-color-white: #2c0c1a;
+  --color-hover-white : #8e375c;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-color-black: #eab7c8;
+  --secundary-color-black: #f8e9ee;
+  --color-hover-black : #df81a4;
+
+
+  --border-color: #c54f81;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color-white);
+  color: var(--secundary-color-white);
+}
+
+.container-grid {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.card img {
+  width: 50%;
+  height: auto;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+
+/* ------------------------------------------- */
+/* Media Queries para a responsividade do grid */
+/* ------------------------------------------- */
+
+/* Tela de dispositivos móveis (≤ 480px) */
+/* 1 coluna */
+@media (max-width: 480px) {
+  .container-grid {
+      grid-template-columns: repeat(1, 1fr);
   }
-  a:hover {
-    color: #747bff;
+}
+
+/* Telas entre 481px e 768px */
+/* 2 colunas */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container-grid {
+      grid-template-columns: repeat(2, 1fr);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Telas entre 769px e 1024px */
+/* 3 colunas */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Telas maiores que 1025px */
+/* 4 colunas */
+@media (min-width: 1025px) {
+  .product-grid {
+      grid-template-columns: repeat(4, 1fr);
   }
 }
